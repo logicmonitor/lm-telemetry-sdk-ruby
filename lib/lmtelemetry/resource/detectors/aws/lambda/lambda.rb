@@ -26,9 +26,11 @@ module LMTelemetry
 
           # context contains arn
           if context.nil?
-            client = Aws::STS::Client.new
-            resp = client.get_caller_identity({})
-            resource_attributes[OpenTelemetry::SemanticConventions::Resource::CLOUD_ACCOUNT_ID] = resp.account
+            unless region.nil?
+              client = Aws::STS::Client.new
+              resp = client.get_caller_identity({})
+              resource_attributes[OpenTelemetry::SemanticConventions::Resource::CLOUD_ACCOUNT_ID] = resp.account
+            end
           else
             resource_attributes[OpenTelemetry::SemanticConventions::Resource::FAAS_ID] = context.invoked_function_arn
           end

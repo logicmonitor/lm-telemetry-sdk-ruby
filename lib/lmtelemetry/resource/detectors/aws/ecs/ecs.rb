@@ -41,6 +41,7 @@ module LMTelemetry
         def fetch_metadata
           logger = Logger.new($stdout)
           metadata_uri = ENV['ECS_CONTAINER_METADATA_URI']
+          return nil if metadata_uri.nil?
           response = RestClient.get metadata_uri
         rescue SocketError => e
           logger.error(e.message)
