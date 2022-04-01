@@ -18,17 +18,15 @@ module LMTelemetry
         extend self
         # detect class method detects the resource attributes of AWS EKS environment
         def detect
+          resource_attributes = {}
           return OpenTelemetry::SDK::Resources::Resource.create(resource_attributes) unless eks?
 
           # get container ID
           container_id = fetch_container_id
-          puts container_id
 
           # get cluster name
           cluster_name = fetch_cluster_name
-          puts cluster_name
 
-          resource_attributes = {}
           resource_attributes[OpenTelemetry::SemanticConventions::Resource::CLOUD_PROVIDER] = 'aws'
           resource_attributes[OpenTelemetry::SemanticConventions::Resource::CLOUD_PLATFORM] = 'aws_eks'
           resource_attributes[OpenTelemetry::SemanticConventions::Resource::CONTAINER_ID] = container_id

@@ -1,5 +1,5 @@
 # Sample docker file for build ECS image
 FROM ruby:3.0
-COPY ecs.rb test-ecs.rb Gemfile ./
+COPY test_ecs.rb Gemfile ./
 RUN bundle install
-CMD ["ruby","test.rb"]
+CMD ["ruby","test_ecs.rb"]

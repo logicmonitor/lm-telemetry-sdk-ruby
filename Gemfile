@@ -6,6 +6,7 @@ gemspec
 
 gem 'aws-sdk'
 gem 'aws-sdk-core'
+gem 'k8s-ruby'
 gem 'minitest', '~> 5.0'
 gem 'opentelemetry-api'
 gem 'opentelemetry-exporter-otlp'

@@ -16,7 +16,7 @@ class SampleECS
 
   ENV['OTEL_TRACES_EXPORTER'] = 'console'
 
-  LMTelemetry::SDK.configure do |c|
+  OpenTelemetry::SDK.configure do |c|
     c.service_name = 'ruby-otlp-ecs'
     c.resource = LMTelemetry::Resource::Detectors::AwsEcs.detect
     c.use_all

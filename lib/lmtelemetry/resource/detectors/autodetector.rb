@@ -23,29 +23,20 @@ module LMTelemetry
         extend self
         def detect
           resource_detector = ENV[LM_RESOURCE_DETECTOR]
-          puts 'Resource Detector::'
-          puts resource_detector
           case resource_detector
           when 'AWS_EC2'
-            puts 'In EC2'
             LMTelemetry::Resource::Detectors::AwsEc2.detect
           when 'AWS_ECS'
-            puts 'In ECS'
             LMTelemetry::Resource::Detectors::AwsEcs.detect
           when 'AWS_EKS'
-            puts 'In EKS'
             LMTelemetry::Resource::Detectors::AwsEks.detect
           when 'AWS_LAMBDA'
-            puts 'In Lambda'
             LMTelemetry::Resource::Detectors::AwsLambda.detect
           when 'GCP'
-            puts 'In GCP'
             LMTelemetry::Resource::Detectors::GoogleCloudPlatform.detect
           else
-            puts 'Not found!!'
+            DETECTORS.map(&:detect).reduce(:merge)
           end
-
-          DETECTORS.map(&:detect).reduce(:merge)
         end
       end
     end
