@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'lmtelemetry/resource/detectors/version'
 
 Gem::Specification.new do |spec|
-  spec.name        = 'lmtelemetry-resource-detectors'
+  spec.name        = 'lm-telemetry-sdk-ruby'
   spec.version     = LMTelemetry::Resource::Detectors::VERSION
   spec.authors     = ['lmoteldev']
   spec.email       = ['lmoteldev@logicmonitor.com']
