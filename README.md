@@ -9,10 +9,10 @@ _NOTE: This is in private beta._
 
 ## Installation
 
-If you use Bundler, include 'lmtelemetry-resource-detectors' to your application's Gemfile:
+If you use Bundler, include 'lm-telemetry-sdk-ruby' to your application's Gemfile:
 
 ```ruby
-gem 'lmtelemetry-resource-detectors'
+gem 'lm-telemetry-sdk-ruby'
 ```
 
 And execute:
@@ -21,7 +21,7 @@ And execute:
 
 OR install the gem as:
 
-    $ gem install lmtelemetry-resource-detectors
+    $ gem install lm-telemetry-sdk-ruby
 
 
 ## Development
