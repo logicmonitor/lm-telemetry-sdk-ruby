@@ -4,9 +4,29 @@ _NOTE: This is in private beta._
 
 ### lmtelemetry-sdk-ruby
 
-1. Aims to minimize adding initialization code for opentelemetry tracing, assumes default values
-2. It has implementation for cloud specific resource detectors
+lmtelemetry-sdk-ruby has implementation for cloud specific resource detectors.
 
+## Prerequisites
+This package is published on GitHub Packages Rubygems registry, you need to follow certain steps to fetch/install this. Please follow these steps to setup your project to use this package.
+
+Set a GitHub Personal Access Token to get lm-telemetry-sdk-ruby from GitHub Package registry.
+Generate a personal access token for your github account with repo and read:packages scope. Follow these steps (https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
+### Modify your .gemrc file
+If you have not created .gemrc in your project, just create a blank file named .gemrc in the root of your project.
+
+Add the following in .gemrc
+```
+---
+:backtrace: false
+:bulk_threshold: 1000
+:sources:
+- https://rubygems.org/
+- https://USERNAME:TOKEN@rubygems.pkg.github.com/logicmonitor/
+:update_sources: true
+:verbose: true
+```
+##### USERNAME: Github username, TOKEN: Personal access token
 ## Installation
 
 If you use Bundler, include 'lm-telemetry-sdk-ruby' to your application's Gemfile:
